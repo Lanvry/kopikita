@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Scroll Animation</title>
+    <meta name="description" content="">
+    <meta name="og:description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul>
+                <li><img src="assets/img/pngtree-coffee-logo-design-png-image_6352424.jpg" alt="Cafe Yang Terbaik Sepanjang Hidup"></li>
+                <li class="logo"><a href="#">Home</a></li>
+                <li class="nav-link"><a href="#menu">Menu</a></li>
+                <li class="nav-link"><a href="#tentang">Tentang</a></li>
+                <li class="nav-link"><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="box">
+            <div class="overlay">
+                <div class="text">
+                    <h1>Kopi Kita</h1>
+                    <h2>Tempat Kita Bersuara & Bercerita</h2>
+                    <span class="arrow"><ion-icon name="chevron-down-outline"></ion-icon></span>
+                </div>
+            </div>
+        </div>
+        <div class="other-banner">
+            <img src="assets/img/kedai-kopi-kompas-60caaefe70994b7b2a0fc342.jpg" alt="">
+            <img src="assets/img/coffeehouse-g9e49c560e_1280.jpg" alt="">
+            <img src="assets/img/the-ferry-coffee-shop.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- Load GSAP dan ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Daftarkan plugin ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animasi untuk box
+        const boxAnimation = gsap.to(".box", {
+            height: 400,
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+            duration: 1
+        });
+
+        // Setup ScrollTrigger
+        ScrollTrigger.create({
+            trigger: ".box",
+            start: "top top",
+            end: "bottom top", // Animasi selesai ketika bottom box mencapai top viewport
+            animation: boxAnimation,
+            scrub: 1,
+            pin: true,
+            markers: false,
+            onEnter: () => {
+
+            },
+            onLeave: () => {
+
+            }
+        });
+
+        const header = document.querySelector(".header");
+        window.addEventListener("scroll", function () {
+            if (window.scrollY >= 130) {
+                header.classList.add('active');
+            }
+            else{
+                header.classList.remove('active');
+            }
+        });
+        // Animasi teks (opsional)
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
