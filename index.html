@@ -33,6 +33,7 @@
         <div class="hero">
             <div class="overlay">
                 <div class="text">
+                    <img src="assets/img/pngtree-coffee-logo-design-png-image_6352424.jpg" alt="">
                     <h1>Kopi Kita</h1>
                     <h2>Tempat Kita Bersuara & Bercerita</h2>
                     <span class="arrow"><ion-icon name="chevron-down-outline"></ion-icon></span>
@@ -54,33 +55,33 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // Daftarkan plugin ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
+        // // Daftarkan plugin ScrollTrigger
+        // gsap.registerPlugin(ScrollTrigger);
 
-        // Animasi untuk box
-        const boxAnimation = gsap.to(".hero", {
-            height: 400,
-            borderBottomLeftRadius: 20,
-            borderBottomRightRadius: 20,
-            duration: 1
-        });
+        // // Animasi untuk box
+        // const boxAnimation = gsap.to(".hero", {
+        //     height: 400,
+        //     borderBottomLeftRadius: 20,
+        //     borderBottomRightRadius: 20,
+        //     duration: 1
+        // });
 
-        // Setup ScrollTrigger
-        ScrollTrigger.create({
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top", // Animasi selesai ketika bottom box mencapai top viewport
-            animation: boxAnimation,
-            scrub: 1,
-            pin: true,
-            markers: false,
-            onEnter: () => {
+        // // Setup ScrollTrigger
+        // ScrollTrigger.create({
+        //     trigger: ".hero",
+        //     start: "top top",
+        //     end: "bottom top", // Animasi selesai ketika bottom box mencapai top viewport
+        //     animation: boxAnimation,
+        //     scrub: 1,
+        //     pin: true,
+        //     markers: false,
+        //     onEnter: () => {
 
-            },
-            onLeave: () => {
+        //     },
+        //     onLeave: () => {
 
-            }
-        });
+        //     }
+        // });
 
         const header = document.querySelector(".header");
         window.addEventListener("scroll", function () {
