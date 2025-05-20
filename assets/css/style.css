@@ -8,6 +8,7 @@
  * {
      padding: 0;
      margin: 0;
+     /* border: 1px solid; */
      box-sizing: border-box;
  }
 
@@ -23,7 +24,7 @@
     width: 100dwh;
  }
 
- .box {
+ .hero {
      background: url('../img/pexels-apgpotr-683039.jpg');
      background-size: cover;
      width: 100%;
@@ -37,7 +38,7 @@
      overflow: hidden;
  }
 
- .box .overlay {
+ .hero .overlay {
      position: absolute;
      height: 100%;
      width: 100%;
@@ -110,7 +111,7 @@
      position: fixed;
      top: 20px;
      /* Jarak dari atas */
-     width: 550px;
+     width: 780px;
      left: 50%;
      transform: translateX(-50%);
      /* Pusatkan secara horizontal */
@@ -135,6 +136,12 @@
      transition: color 0.3s;
  }
 
+ .header .nav{
+    display: flex;
+    gap: 0px;
+    justify-content: space-between;
+ }
+
 
 
  .header .nav ul {
@@ -142,25 +149,15 @@
      display: flex;
      gap: 20px;
      padding: 0;
-     margin: 0;
+     margin: 0 20px;
      align-items: center;
      justify-content: center;
+     width: fit-content;
  }
 
  .header a:hover {
      color: var(--secondary);
      /* Efek hover */
- }
-
- .header .nav ul {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     /* default: logo kiri, link kanan */
-     width: 100%;
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 0 20px;
  }
 
  .header.active .nav ul {
@@ -169,13 +166,20 @@
      gap: 20px;
  }
 
- .header:not(.active) .nav ul li:first-child {
-     margin-right: auto;
+ .align-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
 
 
- .header .nav ul img {
+
+ .header .nav  img {
      width: 40px;
+ }
+ .header .nav  span {
+     font-size: 24px;
+     font-weight: bold;
  }
 
  .other-banner{
