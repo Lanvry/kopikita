@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
 </head>
 
 <body>
@@ -21,15 +22,25 @@
                         alt="Cafe Yang Terbaik Sepanjang Hidup"></div>
                 <div class="col align-center"><span>Kopi Kita</span></div>
             </div>
-            <ul>
-                <li class="logo"><a href="#">Home</a></li>
+            <ul class="nav-pc">
+                <li class="nav-link"><a href="#">Home</a></li>
                 <li class="nav-link"><a href="#menu">Menu</a></li>
                 <li class="nav-link"><a href="#tentang">Tentang</a></li>
                 <li class="nav-link"><a href="#kontak">Kontak</a></li>
             </ul>
+            <button class="togglesidebar" onclick="OpenSidebar()"><ion-icon name="menu-outline"></ion-icon></button>
         </nav>
     </header>
-    <section class="home">
+    <div class="overlay-sidebar" onclick="CloseSidebar()"></div>
+    <aside class="nav-mobile">
+        <ul>
+            <li class=""><a href="#">Home</a></li>
+            <li class=""><a href="#menu">Menu</a></li>
+            <li class=""><a href="#tentang">Tentang</a></li>
+            <li class=""><a href="#kontak">Kontak</a></li>
+        </ul>
+    </aside>
+    <section class="home" id="home">
         <div class="hero">
             <div class="overlay">
                 <div class="text">
@@ -47,54 +58,258 @@
         </div>
     </section>
 
+    <div class="grid-section">
+        <div>
+            <main class="menu" id="menu">
+                <h2>Our Menu</h2>
+                <p>Menu Yang Tersedia Dari Kopi Kita</p>
+
+                <div class="grid">
+                    <div>
+                        <!-- Makanan -->
+                        <h3>Makanan</h3>
+                        <div class="menu-slider-container">
+                            <div class="gallery food-slider js-flickity" data-flickity-options='{ 
+                 "wrapAround": true, 
+                 "autoPlay": 3000, 
+                 "pageDots": false,
+                 "prevNextButtons": true,
+                 "imagesLoaded": true,
+                 "cellAlign": "left",
+                 "contain": true
+             }'>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/sandwich.jpg');"></div>
+                                    <div class="menu-item-content">
+                                        <h4>Sandwich Kopi Kita</h4>
+                                        <p>Sandwich spesial dengan roti panggang dan isian premium</p>
+                                        <span class="menu-price">Rp 35.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/croisan.JPG');"></div>
+                                    <div class="menu-item-content">
+                                        <h4>Croissant</h4>
+                                        <p>Croissant renyah dengan berbagai pilihan isi</p>
+                                        <span class="menu-price">Rp 25.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image" style="background-image: url('assets/img/pasta.jpg');">
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <h4>Pasta Carbonara</h4>
+                                        <p>Pasta dengan saus carbonara creamy dan daging asap</p>
+                                        <span class="menu-price">Rp 45.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/salad-buah.png');"></div>
+                                    <div class="menu-item-content">
+                                        <h4>Salad Buah Segar</h4>
+                                        <p>Campuran buah-buahan segar dengan yogurt</p>
+                                        <span class="menu-price">Rp 30.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Minuman -->
+                        <h3>Minuman</h3>
+                        <div class="menu-slider-container">
+                            <div class="gallery drink-slider js-flickity" data-flickity-options='{ 
+                 "wrapAround": true, 
+                 "autoPlay": 3500, 
+                 "pageDots": false,
+                 "prevNextButtons": true,
+                 "imagesLoaded": true,
+                 "cellAlign": "left",
+                 "contain": true
+             }'>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/espresso-coffee-recipe04.webp');">
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <h4>Espresso</h4>
+                                        <p>Kopi murni dengan rasa kuat dan aroma khas</p>
+                                        <span class="menu-price">Rp 20.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/cappuccino-small.jpg');"></div>
+                                    <div class="menu-item-content">
+                                        <h4>Cappuccino</h4>
+                                        <p>Perpaduan espresso, susu steamed, dan busa susu</p>
+                                        <span class="menu-price">Rp 30.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/kopi-susu-gula-aren.jpg');"></div>
+                                    <div class="menu-item-content">
+                                        <h4>Kopi Susu Gula Aren</h4>
+                                        <p>Kopi dengan susu dan gula aren asli</p>
+                                        <span class="menu-price">Rp 28.000</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-cell menu-item">
+                                    <div class="menu-item-image"
+                                        style="background-image: url('assets/img/matcha-latte.jpg');">
+                                    </div>
+                                    <div class="menu-item-content">
+                                        <h4>Matcha Latte</h4>
+                                        <p>Minuman matcha asli dengan susu steamed</p>
+                                        <span class="menu-price">Rp 32.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </main>
+            <section class="tentang tentang-container" id="tentang">
+                <img src="assets/img/coffee.jpg" alt="">
+                <h2>Tentang Kami</h2>
+                <p class="sub-judul">Cerita di Balik Secangkir Kopi Kita</p>
+
+                <div class="tentang-content">
+                    <div class="tentang-desc">
+                        <p>Kopi Kita lahir dari kecintaan akan kopi dan keinginan untuk menciptakan ruang berkumpul
+                            yang hangat.
+                            Setiap biji kopi yang kami sajikan dipilih dengan teliti untuk memberikan pengalaman
+                            rasa yang autentik.
+                            Kami bukan sekadar kedai kopi, tapi tempat berbagi cerita dan inspirasi.</p>
+
+
+                        <div class="sparator"></div>
+                    </div>
+
+                    <div class="tentang-video">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div>
+            <aside class="sidebar">
+                <div class="overlay"></div>
+                <div class="sidebar-header">
+                    <h2>Testimonials</h2>
+                    <p class="keterangan">Apa yang pelanggan katakan</p>
+                </div>
+                <div class="card testimoni">
+                    <img src="assets/img/profile1.jpg" alt="Profile Andriana Gomezz">
+                    <div class="testimoni-content">
+                        <h3>Andriana Gomezz</h3>
+                        <span class="rating">
+                            <ion-icon name="star-half-outline"></ion-icon> 10.0/10
+                        </span>
+                        <p>Sangat Bagus halaman yang responsive dan sangat memudahkan untuk memesan kopi</p>
+                    </div>
+                </div>
+                <div class="card testimoni">
+                    <img src="assets/img/profile2.jpeg" alt="Profile Andriana Gomezz">
+                    <div class="testimoni-content">
+                        <h3>Pak Budi Hartono</h3>
+                        <span class="rating">
+                            <ion-icon name="star-half-outline"></ion-icon> 9.5/10
+                        </span>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus harum, ex beatae, rerum
+                            soluta porro at maiores itaque deleniti accusamus excepturi debitis! Fuga doloribus, fugiat
+                            aliquid beatae adipisci illum voluptate?</p>
+                    </div>
+                </div>
+                <div class="card testimoni">
+                    <img src="assets/img/profile3.webp" alt="Profile Andriana Gomezz">
+                    <div class="testimoni-content">
+                        <h3>Axel Sidirman</h3>
+                        <span class="rating">
+                            <ion-icon name="star-half-outline"></ion-icon> 9.0/10
+                        </span>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus harum, ex beatae, rerum
+                            soluta porro at maiores itaque deleniti accusamus excepturi debitis! Fuga doloribus, fugiat
+                            aliquid beatae adipisci illum voluptate?</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <!-- Tambahkan ini sebelum penutup </div> dari grid-section -->
+    <section class="kontak" id="kontak">
+        <h2>Kontak Kami</h2>
+        <div class="grid">
+            <div class="contact-info">
+                <h3>Kopi Kita Aja</h3>
+                <div class="card contact-card">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <div>
+                        <span class="contact-label">Alamat Kedai</span>
+                        <p>Jl. Raya 123, Kota Kopi<br>Jawa Barat, Indonesia</p>
+                    </div>
+                </div>
+                <div class="card contact-card">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div>
+                        <span class="contact-label">Telepon/WA</span>
+                        <p>+62 856 4807 7829<br>Buka setiap hari 08.00-22.00</p>
+                    </div>
+                </div>
+                <div class="social-section">
+                    <span class="contact-label">Follow Kami</span>
+                    <div class="coffee-social-links">
+                        <a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="subscribe-form">
+                    <span class="contact-label">Subscribe Newsletter Kami Agar Tetap Terupdate</span>
+                    <form class="subscribe-input">
+                        <input type="email" placeholder="Alamat email Anda">
+                        <button type="submit"><ion-icon name="paper-plane-outline"></ion-icon></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.923391999343!2d107.60885131531715!3d-6.897780395019829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e64a1e6a1093%3A0x1035c71ad8b1a81!2sKopi%20Kita!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid"
+                    class="coffee-map" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        2025 | @copyright by Arjuna Lanang Adiwarsana
+    </footer>
+
+
+
     <!-- Load GSAP dan ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 
-    <script>
-        // // Daftarkan plugin ScrollTrigger
-        // gsap.registerPlugin(ScrollTrigger);
-
-        // // Animasi untuk box
-        // const boxAnimation = gsap.to(".hero", {
-        //     height: 400,
-        //     borderBottomLeftRadius: 20,
-        //     borderBottomRightRadius: 20,
-        //     duration: 1
-        // });
-
-        // // Setup ScrollTrigger
-        // ScrollTrigger.create({
-        //     trigger: ".hero",
-        //     start: "top top",
-        //     end: "bottom top", // Animasi selesai ketika bottom box mencapai top viewport
-        //     animation: boxAnimation,
-        //     scrub: 1,
-        //     pin: true,
-        //     markers: false,
-        //     onEnter: () => {
-
-        //     },
-        //     onLeave: () => {
-
-        //     }
-        // });
-
-        const header = document.querySelector(".header");
-        window.addEventListener("scroll", function () {
-            if (window.scrollY >= 130) {
-                header.classList.add('active');
-            }
-            else {
-                header.classList.remove('active');
-            }
-        });
-        // Animasi teks (opsional)
-
-    </script>
+    <script src="assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
